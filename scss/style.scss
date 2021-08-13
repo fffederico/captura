@@ -1,0 +1,327 @@
+$rojo: #f00000;
+$azul: blue;
+$verde: green;
+$ancho: 500px;
+$largo: 250px;
+$bgcolor: black;
+$a: 1;
+
+body {
+    color: $rojo;
+}
+
+.contenedor_principal {
+    width: $ancho;
+    height: $largo;
+}
+.contenedor_secundario {
+    width: $ancho/2;
+    height: $largo/2;
+}
+
+body {
+@if $bgcolor == black {
+    background-color: black;}
+@else if $bgcolor == white {
+    background-color: white; }
+@else if $bgcolor == #332F2F {
+    background-color: #332F2F;
+}
+@else {
+    background-color: #888888;
+}
+}
+
+@for $a from 1 through 12 {
+    .col-md-#{$a}
+    { width: 8.33% * $a; }
+}
+
+@each $img in latex, esmalte, membrana, aerosol {
+    .#{$img}-imagen { 
+          background-image:  
+           url('imagenes/#{$img}.png');
+     }
+ } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+    background: #d9dad7;
+    color:white;
+    
+    .links{
+      ul {list-style-type: none;}
+      li a{
+        color: #888888;
+        transition: color .2s;
+        &:hover{
+          text-decoration:none;
+          color:whitesmoke;
+          }
+      }
+    }  
+    .about-company{
+      i{font-size: 25px;}
+      a{
+        color:white;
+        transition: color .2s;
+        &:hover{color:#888888}
+      }
+    } 
+    .location{
+      i{font-size: 18px;}
+    }
+    .copyright p{border-top:1px solid rgba(255,255,255,.1);} 
+  }
+
+.titulo{
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem;
+}
+
+
+  .titulo_secundario {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem; 
+  }
+  .titulo_secundario--productos {
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem; 
+    background-color: #332F2F;
+  }
+  .titulo_secundario--carrusel {
+      font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.05rem; 
+    color: red;
+  }
+
+
+.centro {
+    text-align: center;
+
+}
+.derecha {
+    text-align: right;
+}
+.izquierda {
+    text-align: left;
+}
+footer {
+    color: #b3b3b3;
+    text-align: center;
+}
+
+
+
+
+p,div {
+    color: #434351;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: normal;
+    font-style: normal 100;
+}
+.izq {
+    float: left;
+    margin-left: 50px;
+}
+.ctr {
+    display:block;
+    margin:auto;
+}
+.drc {
+    float: right;
+    margin-right: 50px;
+}
+.rotar {
+    -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    margin-left: 1000px;
+}
+.borde {
+    
+    background-color: #797979;
+}
+.flexbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.hola{
+    display: flex;
+    justify-content: space-around;
+    /*Uso esta propiedas momentanameante, me gustaria que esten alineados a la izquierda
+    y con el texto a 90 grados (ver .rotar) */
+    flex-wrap: wrap;
+    
+}
+.flexbox1 {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    
+}
+#logo {
+    margin: 15px;
+    float: center;
+}
+
+
+/*El footer queda medio raro por debajo de los 425px, no se me ocurrio
+nada para solucionarlo :( */
+
+@media (max-width: 500px) {
+    .derecha {
+        text-align: center;
+    }
+    .flexbox {
+        display: flex;
+        flex-direction: column;
+    }
+    .flexbox1 {
+        display: flex;
+        flex-direction: column;
+    }
+    .izq {
+        float: left;
+        margin-left: 0px;
+        display: flex;
+        align-content:space-around ;
+    }
+    .drc {
+        float:right;
+        margin-right: 0px;
+        display: flex;
+        align-content:space-around ;
+    }
+}
+
+
+
+
+#grid {
+    display: grid;
+    grid-template-areas:
+    "video1 texto1"
+    "texto2 video2"
+    "video3 texto3" ;
+    grid-template-columns:
+    30% fr 70%;
+    grid-template-rows:
+    200px 200px 200px;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    align-items: center;
+}
+.video1 {
+    grid-area: video1;
+    
+}
+.texto1 {
+    grid-area: texto1;
+}
+.texto2 {
+    grid-area: texto2;
+}
+.video2 {
+    grid-area: video2;
+    justify-self: end ;
+}
+.texto3 {
+    grid-area: texto3;
+}
+.video3 {
+    grid-area: video3;
+}
+p {
+    margin-left: 15px;
+    
+}
+.boton {
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    min-width: 140px;
+    margin-top: 50px;
+
+}
+.boton:hover {
+    background-color: #434343;
+    transform: scale(2,1);
+}
+
+#rotar:hover {
+    transform: rotate(360deg);
+    transition: 1s;
+}
+/*Al agregar esta propiedad se me anula la de .border y desconozco porque */ 
+.agrandar:hover {
+    transform: scale(1.5,1.5);
+    
+
+}
+h4,h3,h2,h1{
+    animation-duration: 2s;
+    animation-name: aparecer;
+ 
+ }
+ 
+ 
+ @keyframes aparecer {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+ }
+ 
+ .lead {
+     font-size: 1rem;
+ }
+ 
+.h {
+    background-color: #8d8d8da1;
+    color: #332F2F;
+
+    font-family: 'Work Sans', sans-serif;
+    font-style: italic;
+    font-weight: bold;
+
+}
+.jaja {
+    display: flex;
+    flex-direction: row;
+}

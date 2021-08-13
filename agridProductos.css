@@ -1,0 +1,50 @@
+#grid {
+    display: grid;
+    grid-template-areas:
+    "titulo"
+    "video1 texto1"
+    "titulo"
+    "texto2 video2"
+    "titulo"
+    "video3 texto3" ;
+    grid-template-columns:
+    30% fr 70%;
+    grid-template-rows:
+    20px 200px 20px 200px 20px 200px;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    align-items: center;
+}
+.h4 {
+    grid-area: titulo;
+}
+.video1 {
+    grid-area: video1;
+    
+}
+.texto1 {
+    grid-area: texto1;
+}
+.texto2 {
+    grid-area: texto2;
+}
+.video2 {
+    grid-area: video2;
+    justify-self: end ;
+}
+.texto3 {
+    grid-area: texto3;
+}
+.video3 {
+    grid-area: video3;
+}
+
+
+
+
+.borde {
+    border:1px solid;
+}
+
+
+
